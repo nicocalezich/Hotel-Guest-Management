@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ProyectoHotelNT1.Models.Habitaciones>
+
+@{
+    ViewData["Title"] = "Habitaciones";
+}
+
+<h2 class="titulo">Habitaciones</h2>
+
+<div class="informacion">
+    <div class="itemInfo"><h4> <i class="fas fa-arrow-right"></i> Totales: @ViewBag.totales </h4></div>
+    <div class="itemInfo"><h4> <i id="ocupada" class="fas fa-check"> </i> Disponibles: @ViewBag.disponibles </h4></div>
+    <div class="itemInfo"><h4> <i id="noOcupada" class="fas fa-times"></i> Ocupadas:  @ViewBag.ocupadas </h4></div>
+</div>
+<p>
+    <a asp-action="Create">
+        <i class="fas fa-plus"></i>  Nueva habitacion
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <strong> Nro. habitacion</strong>
+            </th>
+            <th>
+                <strong>Disponible</strong>
+            </th>
+            <th>
+                <strong>Precio por dia</strong>
+            </th>
+            <th>
+                <strong>Capacidad maxima</strong>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NroHabitacion)
+                </td>
+                <td>
+                    @if ((item.EstaOcupada))
+                    {
+                        <i id="noOcupada" class="fas fa-times"></i>
+                    }
+                    else
+                    {
+                        <i id="ocupada" class="fas fa-check"></i>
+                    }
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.PrecioPorDia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CapacidadMax) Personas
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id"> <i class="fas fa-info-circle"></i> Detalles </a>
+                    <a asp-action="Liberar" asp-route-id="@item.Id"><i class="fas fa-door-open"></i> Liberar </a>
+                    <a asp-action="HuespedesEnHabitacion" asp-route-id="@item.Id"><i class="fas fa-user-friends"></i> Ocupantes </a>
+                   
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>

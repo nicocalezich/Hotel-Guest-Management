@@ -1,0 +1,65 @@
+﻿@model ProyectoHotelNT1.Models.Huespedes
+
+@{
+    ViewData["Title"] = "Alta";
+}
+
+@if (ViewBag.Validacion != null)
+{
+    <script>
+        @Html.Raw(ViewBag.Validacion)
+    </script>
+}
+
+<h2>  Nuevo huesped</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label">Nombre</label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellido" class="control-label">Apellido</label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dni" class="control-label">DNI</label>
+                <input asp-for="Dni" class="form-control" />
+                <span asp-validation-for="Dni" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NroHabitacion" class="control-label">Nro. habitacion</label>
+                <input asp-for="NroHabitacion" class="form-control" />
+                <span asp-validation-for="NroHabitacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaIngreso" class="control-label">Fecha ingreso</label>
+                <input asp-for="FechaIngreso" class="form-control" />
+                <span asp-validation-for="FechaIngreso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaEgreso" class="control-label">Fecha salida</label>
+                <input asp-for="FechaEgreso" class="form-control" />
+                <span asp-validation-for="FechaEgreso" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" onclick="Validar()" value=" Dar de alta" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index"><i class="fas fa-arrow-left"></i> Volver</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

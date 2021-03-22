@@ -1,0 +1,7 @@
+﻿@if (ViewBag.miCodigoScript != null)
+{
+    <script>
+        @Html.Raw(ViewBag.miCodigoScript)
+        window.history.back();
+    </script>
+}

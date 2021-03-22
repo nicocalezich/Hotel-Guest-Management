@@ -1,0 +1,64 @@
+﻿@model ProyectoHotelNT1.Models.Registro
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Seguro que desea eliminar este registro?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt>
+            Apellido
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+        <dt>
+            DNI
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dni)
+        </dd>
+        <dt>
+            Nro. habitacion
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NroHabitacion)
+        </dd>
+        <dt>
+            Fecha ingreso
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+        <dt>
+            Fecha egreso
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaEgreso)
+        </dd>
+        <dt>
+            Dias hospedado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DiasHospedado)
+        </dd>
+       
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <a asp-action="Index"><i class="fas fa-arrow-left"></i> Volver</a> |
+        <input type="submit" value="Eliminar" class="btn btn-default" />
+
+    </form>
+</div>

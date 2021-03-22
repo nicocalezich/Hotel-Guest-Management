@@ -1,0 +1,45 @@
+﻿@model ProyectoHotelNT1.Models.Habitaciones
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Seguro que quiere eliminar la habitacion? </h3>
+<div>
+    <h4>Habitacion <b>Nro. @Html.DisplayFor(model => model.NroHabitacion)</b></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Nro. habitacion
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NroHabitacion)
+        </dd>
+        <dt>
+           Esta ocupada
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EstaOcupada)
+        </dd>
+        <dt>
+          Precio por dia
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrecioPorDia)
+        </dd>
+        <dt>
+            Capacidad max.
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CapacidadMax)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <a asp-action="Index">Volver</a> |
+        <input type="submit" value="Eliminar" class="btn btn-default" />
+    </form>
+</div>

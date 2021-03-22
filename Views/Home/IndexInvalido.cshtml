@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Log in</title>
+    <meta charset='utf-8'>
+    <link href="~/css/stylesLoginError.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <div class="login-box">
+        <!-- logo y titulo -->
+        <img class="logo" src="~/images/logo2.png">
+        <h1>Inicie sesion</h1>
+
+        <form action="/Home/Ingresar" method="post">
+            <!-- hotel -->
+            <div class="desplegable">
+                <label for="hotel">Hotel</label>
+                <select name="hotel">
+                    <option value="1">Ocean Hill Centro</option>
+                </select>
+            </div>
+            <!-- password -->
+            <label for="password">Contraseña <i class="fas fa-lock"></i></label>
+            <input name="contra" id="password" type="password" placeholder="Ingrese contraseña" required>
+            <!-- credenciales incorrectas-->
+            <p class="error"><b> <i class="fas fa-times-circle"></i> Credenciales invalidas</b></p>            
+            <!-- boton ingresar -->
+            <button asp-action="Ingresar" type="submit">Ingresar</button>
+
+        </form>
+
+    </div>
+    sssss
+</body>
+
+</html>

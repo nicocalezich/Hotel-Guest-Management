@@ -1,0 +1,46 @@
+﻿@model ProyectoHotelNT1.Models.Habitaciones
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detalles </h2>
+
+<div>
+    <h4>Habitacion <b>Nro. @Html.DisplayFor(model => model.NroHabitacion)</h4>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Esta ocupada
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EstaOcupada)
+        </dd>
+        <dt>
+            Precio por dia
+        </dt>
+        <dd>
+            $ @Html.DisplayFor(model => model.PrecioPorDia)
+        </dd>
+        <dt>
+            Capacidad max.
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CapacidadMax) personas
+        </dd>
+        <dt>
+            Recaudado
+        </dt>
+        <dd>
+            $ @ViewBag.Message
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Registro" asp-route-id="@Model.Id"><i class="fas fa-history"></i> Registro </a><br />
+    <a asp-action="Edit" asp-route-id="@Model.Id"><i class="far fa-edit"></i> Editar</a><br />
+    <a asp-action="Delete" asp-route-id="@Model.Id"> <i class="far fa-trash-alt"></i> Eliminar </a><br />
+    <a asp-action="Index"><i class="fas fa-arrow-left"></i> Volver</a>
+</div>
